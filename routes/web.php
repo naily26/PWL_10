@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 Use App\Http\Controllers\ArticleController;
-
+Use App\Http\Controllers\MahasiswaController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
