@@ -55,10 +55,14 @@ class MahasiswaController extends Controller
         ]);
 
         $image = $request->file('foto');
-        if($image)
-        {
-           $image_name = $request->file('foto')->store('images','public');
+
+        if ($article->featured_image && file_exists(storage_path('app/public/' . $article->featured_image))){
+            \Storage::delete('public/' . $article->featured_image);
         }
+        // if($image)
+        // {
+        //    $image_name = $request->file('foto')->store('images','public');
+        // }
         //dd($request->all());
         $mahasiswa = new Mahasiswa;
         $mahasiswa->nim = $request->get('Nim');
@@ -68,7 +72,7 @@ class MahasiswaController extends Controller
         $mahasiswa->no_handphone = $request->get('No_Handphone');
         $mahasiswa->email = $request->get('Email');
         $mahasiswa->tanggal_lahir = $request->get('tanggal_lahir');
-        $mahasiswa->foto = $request->get($image_name);
+        $mahasiswa->foto = $request->get('foto');
         
 
         $kelas = new Kelas;
@@ -128,8 +132,15 @@ class MahasiswaController extends Controller
             'Jurusan' => 'required', 
             'No_Handphone' => 'required', 
             'tanggal_lahir' => 'required',
+            'foto'=>'required',
             ]); 
             
+
+            $image = $request->file('foto');
+        if($image)
+        {
+           $image_name = $request->file('foto')->store('images','public');
+        }
             //fungsi eloquent untuk mengupdate data inputan kita 
             $Mahasiswa = Mahasiswa::with('kelas')->where('nim', $Nim)->first(); 
             $Mahasiswa->nim = $request->get('Nim');
@@ -139,7 +150,8 @@ class MahasiswaController extends Controller
             $Mahasiswa->no_handphone = $request->get('No_Handphone');
             $Mahasiswa->email = $request->get('Email');
             $Mahasiswa->tanggal_lahir = $request->get('tanggal_lahir');
-        
+            $mahasiswa->foto = $request->$image;
+            
 
             $kelas = new Kelas;
             $kelas->id = $request->get('Kelas_Id');

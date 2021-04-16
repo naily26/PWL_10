@@ -52,6 +52,10 @@
                 <label for="tanggal_lahir">Tanggal_Lahir</label> 
                 <input type="date" name="tanggal_lahir" class="form-control" id="tanggal_lahir" aria-describedby="tanggal_lahir" > 
             </div> 
+            <div class="form-group">
+                <label for="foto">foto</label>
+                <input type="file" name="foto" class="form-control"id="foto"aria-describedby="foto">
+            </div>
             <button type="submit" class="btn btn-primary">Submit</button> 
         </form> 
         </div> 
