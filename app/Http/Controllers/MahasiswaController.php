@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Mahasiswa;
 use Illuminate\Http\Request;
 Use App\Models\Kelas;
+use App\Models\matakuliah;
+use PDF;
+
 class MahasiswaController extends Controller
 {
     /**
@@ -48,7 +51,14 @@ class MahasiswaController extends Controller
             'No_Handphone' => 'required',
             'Email' => 'required',
             'tanggal_lahir' => 'required',
+            'foto'=>'required',
         ]);
+
+        $image = $request->file('foto');
+        if($image)
+        {
+           $image_name = $request->file('foto')->store('images','public');
+        }
         //dd($request->all());
         $mahasiswa = new Mahasiswa;
         $mahasiswa->nim = $request->get('Nim');
@@ -58,6 +68,7 @@ class MahasiswaController extends Controller
         $mahasiswa->no_handphone = $request->get('No_Handphone');
         $mahasiswa->email = $request->get('Email');
         $mahasiswa->tanggal_lahir = $request->get('tanggal_lahir');
+        $mahasiswa->foto = $request->get($image_name);
         
 
         $kelas = new Kelas;

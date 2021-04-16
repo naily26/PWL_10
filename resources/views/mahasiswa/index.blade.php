@@ -25,7 +25,8 @@
         <table class="table table-bordered">
             <tr>
             <th>Nim</th>
-            <th>Nama</th>
+            <th>Foto</th>
+            <th>Nama</th>           
             <th>E-mail</th>
             <th>Kelas</th>
             <th>Jurusan</th>
