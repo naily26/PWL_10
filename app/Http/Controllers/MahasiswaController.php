@@ -55,15 +55,13 @@ class MahasiswaController extends Controller
         ]);
 
         $image = $request->file('foto');
+        
 
-        if ($article->featured_image && file_exists(storage_path('app/public/' . $article->featured_image))){
-            \Storage::delete('public/' . $article->featured_image);
+        if($image)
+        {
+           $image_name = $request->file('foto')->store('images','public');
         }
-        // if($image)
-        // {
-        //    $image_name = $request->file('foto')->store('images','public');
-        // }
-        //dd($request->all());
+       
         $mahasiswa = new Mahasiswa;
         $mahasiswa->nim = $request->get('Nim');
         $mahasiswa->nama = $request->get('Nama');
@@ -72,9 +70,9 @@ class MahasiswaController extends Controller
         $mahasiswa->no_handphone = $request->get('No_Handphone');
         $mahasiswa->email = $request->get('Email');
         $mahasiswa->tanggal_lahir = $request->get('tanggal_lahir');
-        $mahasiswa->foto = $request->get('foto');
         
-
+        
+        
         $kelas = new Kelas;
         $kelas->id = $request->get('Kelas_Id');
 
