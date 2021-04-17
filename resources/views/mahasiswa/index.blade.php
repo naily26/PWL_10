@@ -37,8 +37,8 @@
             @foreach ($paginate as $mhs)
                 <tr>
                     <td>{{  $mhs->nim }}</td>
-                    <td><img width="100px" height="100px" src="{{$mhs->foto}}"></td>
                     <td>{{  $mhs->nama }}</td>
+                    <td><img width="100px" height="100px" src="{{$mhs->foto}}"></td>
                     <td>{{  $mhs->email }}</td>
                     <td>{{  $mhs->kelas->nama_kelas }}</td>
                     <td>{{  $mhs->jurusan }}</td>
