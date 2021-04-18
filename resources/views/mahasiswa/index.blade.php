@@ -24,9 +24,9 @@
         </form>
         <table class="table table-bordered">
             <tr>
-            <th>Nim</th>
-            <th>Foto</th>
-            <th>Nama</th>           
+            <th>Nim</th>     
+            <th>Nama</th> 
+            <th>Foto</th>          
             <th>E-mail</th>
             <th>Kelas</th>
             <th>Jurusan</th>
@@ -37,8 +37,8 @@
             @foreach ($paginate as $mhs)
                 <tr>
                     <td>{{  $mhs->nim }}</td>
-                    <td><img width="100px" height="100px" src="{{$mhs->foto}}"></td>
                     <td>{{  $mhs->nama }}</td>
+                    <td><img width="100px" height="100px" src="{{asset('storage/'.$mhs->foto)}}"></td>
                     <td>{{  $mhs->email }}</td>
                     <td>{{  $mhs->kelas->nama_kelas }}</td>
                     <td>{{  $mhs->jurusan }}</td>

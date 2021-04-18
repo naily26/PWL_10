@@ -29,8 +29,8 @@
                 <input type="Nama" name="Nama" class="form-control" id="Nama" aria-describedby="Nama" > 
             </div>
             <div class="form-group"> 
-                <label for="email">E-mail</label> 
-                <input type="email" name="Email" class="form-control" id="email" aria-describedby="email" > 
+                <label for="Email">E-mail</label> 
+                <input type="Email" name="Email" class="form-control" id="Email" aria-describedby="email" > 
             </div> 
             <div class="form-group"> 
                 <label for="Kelas_Id">Kelas</label>
@@ -54,7 +54,7 @@
             </div> 
             <div class="form-group">
                 <label for="foto">foto</label>
-                <input type="file" name="foto" class="form-control"id="foto"aria-describedby="foto">
+                <input type="file" name="foto" class="form-control" id="foto" aria-describedby="foto">
             </div>
             <button type="submit" class="btn btn-primary">Submit</button> 
         </form> 
