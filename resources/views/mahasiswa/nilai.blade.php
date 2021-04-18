@@ -33,6 +33,7 @@
                     </ul>
 
                 <a class="btn btn-success mt-3" href="{{ route('mahasiswa.index') }}">Kembali</a>
+                <p align="center">	<a target="_blank" class="btn btn-danger btn-lg" href="{{url('mahasiswa/cetak_pdf/'.$nilai->nim)}}">CETAK KE PDF</a> </p>
     </div>
     @endsection
 
