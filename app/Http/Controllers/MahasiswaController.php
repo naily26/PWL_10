@@ -53,11 +53,23 @@ class MahasiswaController extends Controller
             'tanggal_lahir' => 'required',
             'foto'=>'required',
         ]);
-        // $image = $request->file('foto');
-        // if($image)
-        // {
-        //    $image_name = $request->file('foto')->store('images','public');
-        // }
+        // $image = $request->foto;
+        //  if($image)
+        //  {
+        //     $image_up = $request->file('foto')->store('images','public');
+        //  }
+        // Mahasiswa::create([
+
+        // 'Nim'=>$request->Nim
+        // ,'Nama'=>$request->Nama
+        // ,'Kelas_Id'=>$request->Kelas_Id
+        // ,'Jurusan'=>$request->Jurusan
+        // ,'No_Handphone'=>$request->No_Handphone
+        // ,'email'=>$request->Email
+        // ,'tanggal_lahir'=>$request->tanggal_lahir
+        // ,'foto'=>$image_up
+
+        // ]);
        
         $mahasiswa = new Mahasiswa;
         $mahasiswa->nim = $request->get('Nim');
@@ -66,10 +78,6 @@ class MahasiswaController extends Controller
         $mahasiswa->no_handphone = $request->get('No_Handphone');
         $mahasiswa->email = $request->get('Email');
         $mahasiswa->tanggal_lahir = $request->get('tanggal_lahir');
-        if($mahasiswa->foto && file_exists(storage_path('app/public/'.$mahasiswa->foto)))
-        {
-            Storage::delete('public/'.$mahasiswa->foto);
-        }
         $image_name = $request->file('foto')->store('images','public');
         $mahasiswa->foto = $image_name;
 
@@ -134,11 +142,6 @@ class MahasiswaController extends Controller
             ]); 
             
 
-        //     $image = $request->file('foto');
-        // if($image)
-        // {
-        //    $image_name = $request->file('foto')->store('images','public');
-        // }
             //fungsi eloquent untuk mengupdate data inputan kita 
             $Mahasiswa = Mahasiswa::with('kelas')->where('nim', $Nim)->first(); 
             $Mahasiswa->nim = $request->get('Nim');
@@ -149,12 +152,13 @@ class MahasiswaController extends Controller
             $Mahasiswa->email = $request->get('Email');
             $Mahasiswa->tanggal_lahir = $request->get('tanggal_lahir');
 
-            if($Mahasiswa->foto && file_exists(storage_path('app/public/'.$mahasiswa->foto)))
+            if($Mahasiswa->foto && file_exists(storage_path('app/public/'.$Mahasiswa->foto)))
         {
             Storage::delete('public/'.$mahasiswa->foto);
         }
-        $image_name = $request->file('Foto')->store('images','public');
-        $mahasiswa->foto = $image_name;
+        $image_name = $request->file('foto')->store('images','public');
+        $Mahasiswa->foto = $image_name;
+
 
 
             $kelas = new Kelas;
