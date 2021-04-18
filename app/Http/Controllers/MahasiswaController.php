@@ -202,4 +202,11 @@ class MahasiswaController extends Controller
         $nilai = Mahasiswa::with('kelas', 'matakuliah')->find($nim);
         return view('mahasiswa.nilai',compact('nilai'));
     }
+
+    public function cetak_pdf($id)
+    {
+        $mhs = Mahasiswa::find($id);
+        $pdf = PDF::loadview('mahasiswa.cetak_pdf',compact('mhs'));
+        return $pdf->stream();
+    }
 }
