@@ -6,7 +6,8 @@
 			<h2>JURUSAN TEKNOLOGI INFORMASI-POLITEKNIK NEGERI MALANG</h2>
 		</div>
 		<p align ="center">KARTU HASIL STUDI</p>
-		<p align ="center">{{$mhs->nama}}</p>
+		<p >{{$mhs->nama}}</p>
+		<p >{{$mhs->nim}}</p>
 </div>
 </div>
 
